@@ -25,12 +25,6 @@ resource "azurerm_machine_learning_compute_cluster" "adl_aml_ws_compute_cluster"
   vm_size                       = "Standard_E4ds_v4"
   machine_learning_workspace_id = azurerm_machine_learning_workspace.mlw.id
   count                         = var.enable_aml_computecluster ? 1 : 0
-
-  scale_settings {
-    min_node_count                       = 0
-    max_node_count                       = 1
-    scale_down_nodes_after_idle_duration = "PT120S" # 120 seconds
-  }
 }
 
 # # Datastore
